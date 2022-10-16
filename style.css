@@ -1,0 +1,475 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        overflow-x: hidden;
+        min-height: 100%;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+        height: 100%;
+    }
+    
+    html::-webkit-scrollbar {
+        width: 1vw;
+    }
+    
+    html::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, rgba(30, 144, 255, .5), #f005);
+        border-radius: 12px;
+    }
+    
+    html::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to bottom, rgb(30, 144, 255), #f00);
+    }
+    
+    html::-webkit-scrollbar-track {
+        background-color: #5555;
+    }
+    
+    html::-webkit-scrollbar-track:hover {
+        background-color: #5557;
+    }
+    
+    nav {
+        width: 100vw;
+        padding: .3rem 0 .3rem 0;
+        background-color: #222;
+        border-bottom: 2px solid #555;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-flow: row wrap;
+        gap: 40vw;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+    }
+    
+    #logo_links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+    }
+    
+    #logo_links strong {
+        font-family: 'Rubik Wet Paint', cursive;
+        color: dodgerblue;
+        font-size: 2rem;
+        font-style: italic;
+        cursor: pointer;
+    }
+    
+    #logo_links ul {
+        margin-left: 110px;
+    }
+    
+    #logo_links ul li {
+        list-style-type: none;
+        display: inline;
+        margin-right: 15px;
+    }
+    
+    #logo_links ul li a {
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2rem;
+        text-decoration: none;
+    }
+    
+    #logo_links ul li a:hover {
+        color: dodgerblue;
+    }
+    
+    #srch {
+        margin-right: 50px;
+    }
+    
+    #srch input {
+        padding: 8px;
+        height: 2rem;
+        border: none;
+        border-radius: 3px;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    #srch input:focus {
+        outline: none;
+    }
+    
+    #srch button {
+        height: 2rem;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 2px;
+        background-color: dodgerblue;
+        color: white;
+        cursor: pointer;
+    }
+    
+    #container {
+        margin-top: 110px;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .content {
+        width: 50vw;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+    }
+    
+    .content .notes_writing_area {
+        border: 1px solid #888;
+        display: flex;
+        flex-flow: column wrap;
+        padding: 8px;
+        border-radius: 4px;
+    }
+    
+    .content .notes_writing_area #note_title {
+        height: 3rem;
+        font-size: 1.2rem;
+        font-weight: 500;
+        font-family: 'Poppins', sans-serif;
+        border: none;
+        border-bottom: 1px solid #999;
+    }
+    
+    .content .notes_writing_area #note_title::placeholder {
+        font-style: italic;
+        font-weight: 500;
+    }
+    
+    .content .notes_writing_area #note_title:focus {
+        outline: none;
+    }
+    
+    @keyframes glow {
+        0% {
+            border: 1px solid #888;
+        }
+        30% {
+            border: none;
+            box-shadow: 0 0 5px .1px rgba(0, 255, 195, .9);
+        }
+        50% {
+            border: none;
+            box-shadow: 0 0 6px .3px rgba(0, 255, 195, .5);
+        }
+        75% {
+            border: none;
+            box-shadow: 0 0 7px .5px rgba(0, 255, 195. .4);
+        }
+        80% {
+            border: none;
+            box-shadow: 0 0 5px .1px rgba(0, 255, 195, .7);
+        }
+        100% {
+            border: 1px solid #888;
+        }
+    }
+    
+    .content textarea {
+        resize: none;
+        height: 150px;
+        padding: 10px;
+        font-size: 1rem;
+        font-weight: 400;
+        font-family: 'Poppins', sans-serif;
+        border: none;
+    }
+    
+    .content textarea:focus {
+        outline: none;
+    }
+    
+    .content header {
+        font-size: 2rem;
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .content label {
+        margin-top: 10px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    
+    .content .buttons {
+        width: 100%;
+    }
+    
+    .content .buttons .btns {
+        margin-top: 8px;
+        padding: 5px 8px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        background-color: dodgerblue;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button#delAllNotes {
+        background-color: red;
+    }
+    
+    .content .hr_line {
+        margin-top: 10px;
+        padding: 10px 0px;
+        border-top: 1px solid #888;
+        border-bottom: 1px solid #888;
+    }
+    
+    .content h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.8rem;
+    }
+    
+    .content .notes_container {
+        margin-top: 10px;
+        display: flex;
+        flex-flow: column wrap;
+        gap: 10px;
+        overflow-x: wrap;
+    }
+    
+    .content .notes_container .note {
+        width: 100%;
+        border: 1px solid #888;
+        padding: 5px;
+        border-radius: 4px;
+        position: relative;
+    }
+    
+    .content .notes_container .note h2 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+    }
+    
+    .content .notes_container .note p {
+        font-family: 'Poppins', sans-serif;
+        margin-left: 30px;
+    }
+    
+    .content .notes_container .note button {
+        font-family: 'Poppins', sans-serif;
+        font-size: .9rem;
+        padding: 5px 8px;
+        margin-top: 10px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .content .notes_container .note .note_head {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+    
+    .content .notes_container .note .saved_note {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2rem;
+    }
+    
+    .content .notes_container .note .edit_note {
+        padding: 5px 15px;
+        background-color: rgb(5, 255, 109);
+        color: #000;
+    }
+    
+    .content .notes_container .note p.created_time {
+        position: absolute;
+        color: grey;
+        right: 10px;
+        bottom: 10px;
+        font-style: italic;
+        font-size: .9rem;
+    }
+    
+    footer .upper_footer {
+        width: 100vw;
+        padding: 8px;
+        background-color: #222;
+        text-align: center;
+        margin-top: -10px;
+    }
+    
+    footer .upper_footer p {
+        margin-top: -5px;
+        color: white;
+        font-size: .9rem;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    footer .lower_footer {
+        margin-top: -10px;
+        width: 100vw;
+        padding-bottom: 80px;
+        background-color: #222;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+    }
+    
+    footer .lower_footer>* {
+        flex: 1 1 25rem;
+    }
+    
+    footer .lower_footer .aboutUs,
+    .contactUs {
+        padding: 20px;
+    }
+    
+    footer .lower_footer .aboutUs h1,
+    .lower_footer .contactUs h1 {
+        margin-top: 20px;
+        font-size: 1.5rem;
+        font-family: 'Poppins', sans-serif;
+        color: dodgerblue;
+    }
+    
+    footer .lower_footer .aboutUs p,
+    .lower_footer ul li {
+        list-style: none;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-size: .8rem;
+        margin: 5px 0;
+    }
+    
+    .lower_footer ul li a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    .lower_footer ul li a:hover {
+        color: dodgerblue;
+    }
+    
+    #socialNetworks ul {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    
+    #socialNetworks li {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
+    
+    #inspiration {
+        background-color: #333;
+        text-align: center;
+    }
+    
+    #inspiration p {
+        color: white;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    @media screen and (max-width: 1283px) {
+        nav {
+            gap: 30vw;
+        }
+    }
+    
+    @media screen and (max-width: 1100px) {
+        nav {
+            gap: 20vw;
+        }
+        #logo_links ul {
+            margin-left: 40px;
+        }
+    }
+    
+    @media screen and (max-width: 990px) {
+        nav {
+            gap: 38vw;
+        }
+        #logo_links {
+            flex-flow: column wrap;
+        }
+        #logo_links ul {
+            margin-left: 0;
+        }
+        html {
+            font-size: 15px;
+        }
+    }
+    
+    @media screen and (max-width: 899px) {
+        .content .notes_container .note {
+            width: 100%;
+        }
+    }
+    
+    @media screen and (max-width: 830px) {
+        .content {
+            width: 80vw;
+        }
+        .content .notes_container .note {
+            width: 100%;
+        }
+        nav {
+            gap: 23vw;
+        }
+        html {
+            font-size: 13px;
+        }
+    }
+    
+    @media screen and (max-width: 690px) {
+        html {
+            font-size: 12px;
+        }
+        nav {
+            gap: 15vw;
+        }
+    }
+    
+    @media screen and (max-width: 574px) {
+        html {
+            font-size: 10px;
+        }
+        nav {
+            gap: 1vh;
+            flex-flow: column wrap;
+        }
+        #srch {
+            margin-right: 0;
+        }
+        #srch input {
+            height: 2.4rem;
+        }
+        #srch button {
+            height: auto;
+        }
+    }
+    
+    @media screen and (max-width: 400px) {
+        html {
+            font-size: 9px;
+        }
+    }
+    
+    @media screen and (max-width: 350px) {
+        .content {
+            width: 90vw;
+        }
+        html {
+            font-size: 8px;
+        }
+    }
